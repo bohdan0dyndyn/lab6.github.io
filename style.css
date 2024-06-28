@@ -31,8 +31,16 @@
 
   #firLiRight{
     float: right;
-    position: absolute;
+    position: relative;
     right: 10%;
+  }
+
+  #min{
+    position: absolute;
+    font-size:xx-large;
+    float:left;
+    top:70%;
+    left: 42%;
   }
 
   #turns{
@@ -89,5 +97,5 @@
   width: 100px;
   height: 50px;
   font-size: x-large;
-  left: 300px;
+  left: 10%;
 }
