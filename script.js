@@ -37,7 +37,7 @@ function fillArr(){
     // }
     for(let i=0;i<25;i++){
         if(arr[i]===1){
-            changeArr(i,j);
+            squares[i].classList.toggle('on');
         }
     }
         },
