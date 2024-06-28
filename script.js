@@ -28,18 +28,13 @@ function fillArr(){
     $ajaxUtils.sendGetRequest("data/data1.json",
         function(request){
             arr=request.array;
-    //             for(let i=0;i<5;i++){
-    //               for(let j=0;j<5;j++){
-    //                  if(arr[i,j]===1){
-    //               changeArr(i,j);
-    //           }
-    //     }
-    // }
-    for(let i=0;i<25;i++){
-        if(arr[i]===1){
-            squares[i].classList.toggle('on');
-        }
-    }
+                 for(let i=0;i<5;i++){
+                   for(let j=0;j<5;j++){
+                      if(arr[i,j]===1){
+                   changeArr(i,j);
+               }
+         }
+     }
         },
         true)
 
