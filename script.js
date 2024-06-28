@@ -19,25 +19,29 @@ function startFunc(event){
 }
 
 function restartFunc(event){
-
+    clearInterval(timer);
+    turns=0;
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].disabled=false;
+    }
+    fillArr();
+    startTimer();
 }
 
 function fillArr(){
-    //let rand = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    let rand = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     let arr;
-    $ajaxUtils.sendGetRequest("data/data1.json",
+    allTo1();
+    $ajaxUtils.sendGetRequest("data/data"+rand+".json",
         function(request){
             arr=request.array;
-                 for(let i=0;i<5;i++){
-                   for(let j=0;j<5;j++){
-                      if(arr[i,j]===1){
-                   changeArr(i,j);
-               }
-         }
-     }
-        },
-        true)
-
+            for(let i=0;i<25;i++){
+                if(arr[i]===0){
+                    squares[i].classList.toggle('on');
+                }
+            }
+            document.getElementById("min").textContent = "Minimal turns: "+request.min;
+        },true)
 }
 
 function changeSquares(event){
@@ -60,7 +64,7 @@ function changeSquares(event){
     if(j<4){
         changeArr(i,j+1);
     }
-   // checkArr();
+    checkArr();
 }
 
 function changeArr(i,j){
@@ -88,18 +92,24 @@ function startTimer(){
   }, 1000);
 }
 
+function allTo1(){
+    for (let i = 0; i < squares.length; i++) {
+        if (!squares[i].classList.contains('on'))squares[i].classList.toggle('on');
+    }
+}
+
 function checkArr(){
-    for(let i=0; i<5;i++){
-        for(let j=0;j<5;j++){
-            if(boolArr[i,j]===true){
-                return "";
-            }
-        }
+    for (let i = 0; i < squares.length; i++) {
+        if (squares[i].classList.contains('on')) return false;
     }
     WinGame();
+    return true;
 }
 
 function WinGame(){
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].disabled=true;
+    }
     clearInterval(timer);
     showModal();
 }
