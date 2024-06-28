@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гра "Lights out"</title>
+  <link rel="stylesheet" href="style.css">
+  <script src ="ajaxUtils.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div id="firstLine">
+	<button id="startButton">Start</button>
+  <button id="restartButton">Restart</button>
+  </div>
+  <div id="firLiRight"><div id="turns">Turns: 0</div><div id="hours">Time: 00:</div><div id="minutes">00:</div><div id="seconds">00</div></div>
+  <div id="gameBoard"></div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>You Win!!!</h1>
+		<h3>If you want play more click button "Restart"</h3>
+    </div>
+</div>
+
+</body>
+</html>
